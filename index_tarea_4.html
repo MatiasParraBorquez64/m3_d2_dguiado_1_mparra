@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+function esEntero(valor) {
+    return Number.isInteger(valor);
+}
+
+let numero;
+do {
+    numero = prompt("Ingrese un número entero:");
+    numero = parseInt(numero); 
+    if (!esEntero(numero) || isNaN(numero)) {
+        alert("Solo se aceptan números enteros.");
+    }
+} while (!esEntero(numero) || isNaN(numero));
+
+let años = Math.floor(numero / 365);
+let semanas = Math.floor((numero % 365) / 7);
+let dias = numero % 365 % 7;
+
+alert(numero + " días equivalen a:\n" + años + " años\n" + semanas + " semanas\n" + dias + " días");
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

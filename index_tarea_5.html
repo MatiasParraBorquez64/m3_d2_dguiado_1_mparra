@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+function esRacional(valor) {
+    return !isNaN(parseFloat(valor)) && isFinite(valor);
+}
+
+let numeros = [];
+for (let i = 0; i < 5; i++) {
+    let numero;
+    do {
+        numero = prompt("Ingrese el número " + (i + 1) + ":");
+        if (!esRacional(numero)) {
+            alert("Solo se aceptan números racionales.");
+        }
+    } while (!esRacional(numero));
+    numeros.push(parseFloat(numero));
+}
+
+let suma = 0;
+for (let i = 0; i < numeros.length; i++) {
+    suma += numeros[i];
+}
+
+let promedio = suma / numeros.length;
+
+let resultadoPanel = "Resultados de los números ";
+for (let i = 0; i < numeros.length; i++) {
+    resultadoPanel += numeros[i];
+    if (i < numeros.length - 1) {
+        resultadoPanel += ", ";
+    }
+}
+resultadoPanel += ":\n";
+resultadoPanel += "Resultado de la suma = " + suma.toFixed(2) + "\n";
+resultadoPanel += "Resultado del promedio = " + promedio.toFixed(2);
+alert(resultadoPanel);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

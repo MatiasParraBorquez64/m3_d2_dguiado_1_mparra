@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function validarNumeroMayorCero(numero) {
+            return numero > 0;
+        }
+
+        function esEntero(numero) {
+            return numero % 1 === 0;
+        }
+
+        let numero1;
+        do {
+            numero1 = prompt("Ingrese el número 1 (debe ser mayor a 0):");
+        } while (!validarNumeroMayorCero(Number(numero1)));
+
+        let numero2;
+        do {
+            numero2 = prompt("Ingrese el número 2 (debe ser mayor a 0):");
+        } while (!validarNumeroMayorCero(Number(numero2)));
+
+        let operacion = prompt("Ingrese el número de la operación que desea realizar:\n1. Suma\n2. Resta\n3. Multiplicación\n4. División\n5. Residuo de la división");
+
+        operacion = parseInt(operacion);
+
+        let resultado;
+        switch (operacion) {
+            case 1:
+                resultado = Number(numero1) + Number(numero2);
+                break;
+            case 2:
+                resultado = Number(numero1) - Number(numero2);
+                break;
+            case 3:
+                resultado = Number(numero1) * Number(numero2);
+                break;
+            case 4:
+                resultado = Number(numero1) / Number(numero2);
+                if (!esEntero(resultado)) {
+                    resultado = undefined;
+                    alert("Operación no realizada, ya que el resultado no es un número entero.");
+                }
+                break;
+            case 5:
+                resultado = Number(numero1) % Number(numero2);
+                if (!esEntero(resultado)) {
+                    resultado = undefined;
+                    alert("Operación no realizada, ya que el resultado no es un número entero.");
+                }
+                break;
+            default:
+                alert("Operación no válida.");
+                break;
+        }
+
+        if (resultado !== undefined) {
+            alert("El resultado de la operación es: " + resultado);
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
